@@ -23,9 +23,6 @@ import java.util.List;
 public class ZkRegistryCenter {
     private static final Logger logger = LoggerFactory.getLogger(ZkRegistryCenter.class);
 
-    @Resource
-    private RegistryUtils registryUtils;
-
     /**
      * ip待抽成配置
      */
