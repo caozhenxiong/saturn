@@ -11,14 +11,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
  * 注册中心,后期可抽成扩展
  */
 @Service
-public class RegistryCenterInstance {
-    private static final Logger logger = LoggerFactory.getLogger(RegistryCenterInstance.class);
+public class ZKRegistryCenter {
+    private static final Logger logger = LoggerFactory.getLogger(ZKRegistryCenter.class);
+
+    @Resource
+    private RegistryUtils registryUtils;
 
     /**
      * ip待抽成配置
@@ -33,7 +37,7 @@ public class RegistryCenterInstance {
      */
     public void createClientAvaliablePath(String projectId, String envId, String host) {
         try {
-            String pathReturn = RegistryUtils.createNode(curatorFramework, RegistryConstants.buildClientAvaliablePath(projectId, envId, host));
+            String pathReturn = registryUtils.createNode(curatorFramework, RegistryConstants.buildClientAvaliablePath(projectId, envId, host));
             logger.info("已创建客户端path:{}", pathReturn);
         } catch (Exception e) {
             throw new SaturnExeception(ErrorCode.CLIENT_REG_ERROR, e);
@@ -48,7 +52,7 @@ public class RegistryCenterInstance {
      */
     public void createServerPath(String projectId, String env, String host) {
         try {
-            String forPath = RegistryUtils.createNode(curatorFramework, RegistryConstants.buildServeAvaliablePath(projectId, env, host));
+            String forPath = registryUtils.createNode(curatorFramework, RegistryConstants.buildServeAvaliablePath(projectId, env, host));
             logger.info("已创建服务端path:{}", forPath);
         } catch (Exception e) {
             throw new SaturnExeception(ErrorCode.SERVER_REG_ERROR, e);
@@ -61,7 +65,7 @@ public class RegistryCenterInstance {
     public void createConfigChangePath(List<ConfigPo> configs) {
         try {
             for (ConfigPo configPo : configs) {
-                String forPath = RegistryUtils.createNode(curatorFramework, RegistryConstants.buildChangeListenerPath(configPo.getProjectId(),
+                String forPath = registryUtils.createNode(curatorFramework, RegistryConstants.buildChangeListenerPath(configPo.getProjectId(),
                         configPo.getEnvId(), configPo.getProfileId(), configPo.getVersion()));
                 logger.info("已创建服务端path:{}", forPath);
             }
