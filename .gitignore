@@ -1,0 +1,27 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+#src/main/resources/config.properties
+#config.properties
+.classpath
+.metadata/
+.project
+.settings/
+.idea/
+*.iml
+*.iws
+.DS_Store
+logs/
+target/
+
+# Emacs
+*~
+.#*
+
+# Omni Graffle #
+*(Autosaved).graffle
+rebel.xml
+*/dubbo/*
