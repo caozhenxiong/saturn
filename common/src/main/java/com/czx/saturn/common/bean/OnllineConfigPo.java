@@ -2,7 +2,7 @@ package com.czx.saturn.common.bean;
 
 import com.czx.saturn.common.constants.ProfileType;
 
-public class OnllineConfig {
+public class OnllineConfigPo {
     /**
      * 配置文件名称
      */
