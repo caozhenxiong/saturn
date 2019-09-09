@@ -1,8 +1,8 @@
-package com.czx.saturn.common.bean;
+package com.czx.saturn.common.bean.po;
 
 import com.czx.saturn.common.constants.ProfileType;
 
-public class OnllineConfigPo {
+public class ConfigPo {
     /**
      * 配置文件名称
      */
