@@ -1,5 +1,6 @@
 package com.czx.saturn.common.registry;
 
+import com.czx.saturn.common.bean.ZKNode;
 import com.czx.saturn.common.bean.po.ConfigPo;
 import com.czx.saturn.common.constants.ErrorCode;
 import com.czx.saturn.common.constants.RegistryConstants;
@@ -16,10 +17,11 @@ import java.util.List;
 
 /**
  * 注册中心,后期可抽成扩展
+ * @author caozhenxiong
  */
 @Service
-public class ZKRegistryCenter {
-    private static final Logger logger = LoggerFactory.getLogger(ZKRegistryCenter.class);
+public class ZkRegistryCenter {
+    private static final Logger logger = LoggerFactory.getLogger(ZkRegistryCenter.class);
 
     @Resource
     private RegistryUtils registryUtils;
@@ -37,8 +39,8 @@ public class ZKRegistryCenter {
      */
     public void createClientAvaliablePath(String projectId, String envId, String host) {
         try {
-            String pathReturn = registryUtils.createNode(curatorFramework, RegistryConstants.buildClientAvaliablePath(projectId, envId, host));
-            logger.info("已创建客户端path:{}", pathReturn);
+            String pathReturn = this.createNode(curatorFramework, RegistryConstants.buildClientAvaliablePath(projectId, envId, host));
+            logger.info("已创建客户端消费者节点path:{}", pathReturn);
         } catch (Exception e) {
             throw new SaturnExeception(ErrorCode.CLIENT_REG_ERROR, e);
         }
@@ -52,8 +54,8 @@ public class ZKRegistryCenter {
      */
     public void createServerPath(String projectId, String env, String host) {
         try {
-            String forPath = registryUtils.createNode(curatorFramework, RegistryConstants.buildServeAvaliablePath(projectId, env, host));
-            logger.info("已创建服务端path:{}", forPath);
+            String forPath = this.createNode(curatorFramework, RegistryConstants.buildServeAvaliablePath(projectId, env, host));
+            logger.info("已创建服务端生产者节点path:{}", forPath);
         } catch (Exception e) {
             throw new SaturnExeception(ErrorCode.SERVER_REG_ERROR, e);
         }
@@ -65,13 +67,19 @@ public class ZKRegistryCenter {
     public void createConfigChangePath(List<ConfigPo> configs) {
         try {
             for (ConfigPo configPo : configs) {
-                String forPath = registryUtils.createNode(curatorFramework, RegistryConstants.buildChangeListenerPath(configPo.getProjectId(),
+                String forPath = this.createNode(curatorFramework, RegistryConstants.buildChangeListenerPath(configPo.getProjectId(),
                         configPo.getEnvId(), configPo.getProfileId(), configPo.getVersion()));
-                logger.info("已创建服务端path:{}", forPath);
+                logger.info("已创建配置变更监听节点path:{}", forPath);
             }
         } catch (Exception e) {
             throw new SaturnExeception(ErrorCode.SERVER_REG_ERROR, e);
         }
     }
 
+    /**
+     * 创建节点
+     */
+    private String createNode(CuratorFramework curatorFramework, ZKNode zkNode) throws Exception {
+        return curatorFramework.create().creatingParentsIfNeeded().withMode(zkNode.getNodeMode()).forPath(zkNode.getPath(), zkNode.getData());
+    }
 }
