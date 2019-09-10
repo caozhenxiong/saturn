@@ -10,7 +10,7 @@ import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.retry.BoundedExponentialBackoffRetry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -18,9 +18,9 @@ import java.util.List;
  * 注册中心,后期可抽成扩展
  * @author caozhenxiong
  */
-@Service
-public class ZkRegistryCenter {
-    private static final Logger logger = LoggerFactory.getLogger(ZkRegistryCenter.class);
+@Component
+public class ZkRegistryUtil {
+    private static final Logger logger = LoggerFactory.getLogger(ZkRegistryUtil.class);
     /**
      * ip待抽成配置
      */
