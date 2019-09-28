@@ -1,7 +1,7 @@
 package com.czx.saturn.common.registry;
 
 import com.czx.saturn.common.bean.ZKNode;
-import com.czx.saturn.common.bean.po.ConfigPo;
+//import com.czx.saturn.common.bean.po.ConfigPo;
 import com.czx.saturn.common.constants.ErrorCode;
 import com.czx.saturn.common.constants.RegistryConstants;
 import com.czx.saturn.common.exeception.SaturnExeception;
@@ -56,20 +56,20 @@ public class ZkRegistryUtil {
         }
     }
 
-    /**
-     * 创建配置变更监听节点
-     */
-    public void createConfigChangePath(List<ConfigPo> configs) {
-        try {
-            for (ConfigPo configPo : configs) {
-                String forPath = this.createNode(curatorFramework, RegistryConstants.buildChangeListenerPath(configPo.getProjectId(),
-                        configPo.getEnvId(), configPo.getProfileId(), configPo.getVersion()));
-                logger.info("已创建配置变更监听节点path:{}", forPath);
-            }
-        } catch (Exception e) {
-            throw new SaturnExeception(ErrorCode.SERVER_REG_ERROR, e);
-        }
-    }
+//    /**
+//     * 创建配置变更监听节点
+//     */
+//    public void createConfigChangePath(List<ConfigPo> configs) {
+//        try {
+//            for (ConfigPo configPo : configs) {
+//                String forPath = this.createNode(curatorFramework, RegistryConstants.buildChangeListenerPath(configPo.getProjectId(),
+//                        configPo.getEnvId(), configPo.getProfileId(), configPo.getVersion()));
+//                logger.info("已创建配置变更监听节点path:{}", forPath);
+//            }
+//        } catch (Exception e) {
+//            throw new SaturnExeception(ErrorCode.SERVER_REG_ERROR, e);
+//        }
+//    }
 
     /**
      * 创建节点

@@ -6,7 +6,7 @@ package com.czx.saturn.common.constants;
  */
 public enum  ProfileType {
     /** json and kv **/
-    JSON,KV;
+    JSON,PROPERTIES;
 
     ProfileType(){}
 }
