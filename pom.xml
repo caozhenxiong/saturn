@@ -13,6 +13,7 @@
         <module>common</module>
         <module>server</module>
         <module>core</module>
+        <module>admin</module>
     </modules>
     <properties>
         <guava_version>22.0</guava_version>
