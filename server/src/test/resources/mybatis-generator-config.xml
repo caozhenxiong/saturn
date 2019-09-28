@@ -6,7 +6,7 @@
 
     <classPathEntry location="/Users/caozhenxiong/dev/repository/mysql/mysql-connector-java/8.0.16/mysql-connector-java-8.0.16.jar"/>
     <!-- !!!! Driver Class Path !!!! -->
-    <context id="context" targetRuntime="MyBatis3">
+    <context id="context" targetRuntime="MyBatis3" defaultModelType="flat">
         <plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin"/>
         <commentGenerator>
             <property name="suppressAllComments" value="true"/>
