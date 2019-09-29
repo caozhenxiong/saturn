@@ -1,20 +1,11 @@
 package com.czx.saturn.common.registry;
 
-import javax.annotation.PostConstruct;
+import com.czx.saturn.common.bean.ZKNode;
+
+import java.util.List;
 
 public abstract class AbstractRegistor {
 
-    public abstract void prepareData();
-
-    public abstract void regist();
-
-    public abstract void end();
-
-    @PostConstruct
-    public void process(){
-        prepareData();
-        regist();
-        end();
-    }
+    public abstract void regist(List<ZKNode> nodes);
 
 }
