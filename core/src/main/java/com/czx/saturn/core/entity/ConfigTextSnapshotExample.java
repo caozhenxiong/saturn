@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class ConfigInfoExample {
+public class ConfigTextSnapshotExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public ConfigInfoExample() {
+    public ConfigTextSnapshotExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -162,6 +162,66 @@ public class ConfigInfoExample {
 
         public Criteria andIdNotBetween(Long value1, Long value2) {
             addCriterion("id not between", value1, value2, "id");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfigIdIsNull() {
+            addCriterion("config_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfigIdIsNotNull() {
+            addCriterion("config_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfigIdEqualTo(Long value) {
+            addCriterion("config_id =", value, "configId");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfigIdNotEqualTo(Long value) {
+            addCriterion("config_id <>", value, "configId");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfigIdGreaterThan(Long value) {
+            addCriterion("config_id >", value, "configId");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfigIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("config_id >=", value, "configId");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfigIdLessThan(Long value) {
+            addCriterion("config_id <", value, "configId");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfigIdLessThanOrEqualTo(Long value) {
+            addCriterion("config_id <=", value, "configId");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfigIdIn(List<Long> values) {
+            addCriterion("config_id in", values, "configId");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfigIdNotIn(List<Long> values) {
+            addCriterion("config_id not in", values, "configId");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfigIdBetween(Long value1, Long value2) {
+            addCriterion("config_id between", value1, value2, "configId");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfigIdNotBetween(Long value1, Long value2) {
+            addCriterion("config_id not between", value1, value2, "configId");
             return (Criteria) this;
         }
 
@@ -445,273 +505,133 @@ public class ConfigInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andConfigKeyIsNull() {
-            addCriterion("config_key is null");
+        public Criteria andOperatorIsNull() {
+            addCriterion("operator is null");
             return (Criteria) this;
         }
 
-        public Criteria andConfigKeyIsNotNull() {
-            addCriterion("config_key is not null");
+        public Criteria andOperatorIsNotNull() {
+            addCriterion("operator is not null");
             return (Criteria) this;
         }
 
-        public Criteria andConfigKeyEqualTo(String value) {
-            addCriterion("config_key =", value, "configKey");
+        public Criteria andOperatorEqualTo(String value) {
+            addCriterion("operator =", value, "operator");
             return (Criteria) this;
         }
 
-        public Criteria andConfigKeyNotEqualTo(String value) {
-            addCriterion("config_key <>", value, "configKey");
+        public Criteria andOperatorNotEqualTo(String value) {
+            addCriterion("operator <>", value, "operator");
             return (Criteria) this;
         }
 
-        public Criteria andConfigKeyGreaterThan(String value) {
-            addCriterion("config_key >", value, "configKey");
+        public Criteria andOperatorGreaterThan(String value) {
+            addCriterion("operator >", value, "operator");
             return (Criteria) this;
         }
 
-        public Criteria andConfigKeyGreaterThanOrEqualTo(String value) {
-            addCriterion("config_key >=", value, "configKey");
+        public Criteria andOperatorGreaterThanOrEqualTo(String value) {
+            addCriterion("operator >=", value, "operator");
             return (Criteria) this;
         }
 
-        public Criteria andConfigKeyLessThan(String value) {
-            addCriterion("config_key <", value, "configKey");
+        public Criteria andOperatorLessThan(String value) {
+            addCriterion("operator <", value, "operator");
             return (Criteria) this;
         }
 
-        public Criteria andConfigKeyLessThanOrEqualTo(String value) {
-            addCriterion("config_key <=", value, "configKey");
+        public Criteria andOperatorLessThanOrEqualTo(String value) {
+            addCriterion("operator <=", value, "operator");
             return (Criteria) this;
         }
 
-        public Criteria andConfigKeyLike(String value) {
-            addCriterion("config_key like", value, "configKey");
+        public Criteria andOperatorLike(String value) {
+            addCriterion("operator like", value, "operator");
             return (Criteria) this;
         }
 
-        public Criteria andConfigKeyNotLike(String value) {
-            addCriterion("config_key not like", value, "configKey");
+        public Criteria andOperatorNotLike(String value) {
+            addCriterion("operator not like", value, "operator");
             return (Criteria) this;
         }
 
-        public Criteria andConfigKeyIn(List<String> values) {
-            addCriterion("config_key in", values, "configKey");
+        public Criteria andOperatorIn(List<String> values) {
+            addCriterion("operator in", values, "operator");
             return (Criteria) this;
         }
 
-        public Criteria andConfigKeyNotIn(List<String> values) {
-            addCriterion("config_key not in", values, "configKey");
+        public Criteria andOperatorNotIn(List<String> values) {
+            addCriterion("operator not in", values, "operator");
             return (Criteria) this;
         }
 
-        public Criteria andConfigKeyBetween(String value1, String value2) {
-            addCriterion("config_key between", value1, value2, "configKey");
+        public Criteria andOperatorBetween(String value1, String value2) {
+            addCriterion("operator between", value1, value2, "operator");
             return (Criteria) this;
         }
 
-        public Criteria andConfigKeyNotBetween(String value1, String value2) {
-            addCriterion("config_key not between", value1, value2, "configKey");
+        public Criteria andOperatorNotBetween(String value1, String value2) {
+            addCriterion("operator not between", value1, value2, "operator");
             return (Criteria) this;
         }
 
-        public Criteria andConfigValueIsNull() {
-            addCriterion("config_value is null");
+        public Criteria andCurrentVersionIsNull() {
+            addCriterion("current_version is null");
             return (Criteria) this;
         }
 
-        public Criteria andConfigValueIsNotNull() {
-            addCriterion("config_value is not null");
+        public Criteria andCurrentVersionIsNotNull() {
+            addCriterion("current_version is not null");
             return (Criteria) this;
         }
 
-        public Criteria andConfigValueEqualTo(String value) {
-            addCriterion("config_value =", value, "configValue");
+        public Criteria andCurrentVersionEqualTo(Integer value) {
+            addCriterion("current_version =", value, "currentVersion");
             return (Criteria) this;
         }
 
-        public Criteria andConfigValueNotEqualTo(String value) {
-            addCriterion("config_value <>", value, "configValue");
+        public Criteria andCurrentVersionNotEqualTo(Integer value) {
+            addCriterion("current_version <>", value, "currentVersion");
             return (Criteria) this;
         }
 
-        public Criteria andConfigValueGreaterThan(String value) {
-            addCriterion("config_value >", value, "configValue");
+        public Criteria andCurrentVersionGreaterThan(Integer value) {
+            addCriterion("current_version >", value, "currentVersion");
             return (Criteria) this;
         }
 
-        public Criteria andConfigValueGreaterThanOrEqualTo(String value) {
-            addCriterion("config_value >=", value, "configValue");
+        public Criteria andCurrentVersionGreaterThanOrEqualTo(Integer value) {
+            addCriterion("current_version >=", value, "currentVersion");
             return (Criteria) this;
         }
 
-        public Criteria andConfigValueLessThan(String value) {
-            addCriterion("config_value <", value, "configValue");
+        public Criteria andCurrentVersionLessThan(Integer value) {
+            addCriterion("current_version <", value, "currentVersion");
             return (Criteria) this;
         }
 
-        public Criteria andConfigValueLessThanOrEqualTo(String value) {
-            addCriterion("config_value <=", value, "configValue");
+        public Criteria andCurrentVersionLessThanOrEqualTo(Integer value) {
+            addCriterion("current_version <=", value, "currentVersion");
             return (Criteria) this;
         }
 
-        public Criteria andConfigValueLike(String value) {
-            addCriterion("config_value like", value, "configValue");
+        public Criteria andCurrentVersionIn(List<Integer> values) {
+            addCriterion("current_version in", values, "currentVersion");
             return (Criteria) this;
         }
 
-        public Criteria andConfigValueNotLike(String value) {
-            addCriterion("config_value not like", value, "configValue");
+        public Criteria andCurrentVersionNotIn(List<Integer> values) {
+            addCriterion("current_version not in", values, "currentVersion");
             return (Criteria) this;
         }
 
-        public Criteria andConfigValueIn(List<String> values) {
-            addCriterion("config_value in", values, "configValue");
+        public Criteria andCurrentVersionBetween(Integer value1, Integer value2) {
+            addCriterion("current_version between", value1, value2, "currentVersion");
             return (Criteria) this;
         }
 
-        public Criteria andConfigValueNotIn(List<String> values) {
-            addCriterion("config_value not in", values, "configValue");
-            return (Criteria) this;
-        }
-
-        public Criteria andConfigValueBetween(String value1, String value2) {
-            addCriterion("config_value between", value1, value2, "configValue");
-            return (Criteria) this;
-        }
-
-        public Criteria andConfigValueNotBetween(String value1, String value2) {
-            addCriterion("config_value not between", value1, value2, "configValue");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastOperatorIsNull() {
-            addCriterion("last_operator is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastOperatorIsNotNull() {
-            addCriterion("last_operator is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastOperatorEqualTo(String value) {
-            addCriterion("last_operator =", value, "lastOperator");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastOperatorNotEqualTo(String value) {
-            addCriterion("last_operator <>", value, "lastOperator");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastOperatorGreaterThan(String value) {
-            addCriterion("last_operator >", value, "lastOperator");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastOperatorGreaterThanOrEqualTo(String value) {
-            addCriterion("last_operator >=", value, "lastOperator");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastOperatorLessThan(String value) {
-            addCriterion("last_operator <", value, "lastOperator");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastOperatorLessThanOrEqualTo(String value) {
-            addCriterion("last_operator <=", value, "lastOperator");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastOperatorLike(String value) {
-            addCriterion("last_operator like", value, "lastOperator");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastOperatorNotLike(String value) {
-            addCriterion("last_operator not like", value, "lastOperator");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastOperatorIn(List<String> values) {
-            addCriterion("last_operator in", values, "lastOperator");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastOperatorNotIn(List<String> values) {
-            addCriterion("last_operator not in", values, "lastOperator");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastOperatorBetween(String value1, String value2) {
-            addCriterion("last_operator between", value1, value2, "lastOperator");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastOperatorNotBetween(String value1, String value2) {
-            addCriterion("last_operator not between", value1, value2, "lastOperator");
-            return (Criteria) this;
-        }
-
-        public Criteria andVersionIsNull() {
-            addCriterion("version is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andVersionIsNotNull() {
-            addCriterion("version is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andVersionEqualTo(Integer value) {
-            addCriterion("version =", value, "version");
-            return (Criteria) this;
-        }
-
-        public Criteria andVersionNotEqualTo(Integer value) {
-            addCriterion("version <>", value, "version");
-            return (Criteria) this;
-        }
-
-        public Criteria andVersionGreaterThan(Integer value) {
-            addCriterion("version >", value, "version");
-            return (Criteria) this;
-        }
-
-        public Criteria andVersionGreaterThanOrEqualTo(Integer value) {
-            addCriterion("version >=", value, "version");
-            return (Criteria) this;
-        }
-
-        public Criteria andVersionLessThan(Integer value) {
-            addCriterion("version <", value, "version");
-            return (Criteria) this;
-        }
-
-        public Criteria andVersionLessThanOrEqualTo(Integer value) {
-            addCriterion("version <=", value, "version");
-            return (Criteria) this;
-        }
-
-        public Criteria andVersionIn(List<Integer> values) {
-            addCriterion("version in", values, "version");
-            return (Criteria) this;
-        }
-
-        public Criteria andVersionNotIn(List<Integer> values) {
-            addCriterion("version not in", values, "version");
-            return (Criteria) this;
-        }
-
-        public Criteria andVersionBetween(Integer value1, Integer value2) {
-            addCriterion("version between", value1, value2, "version");
-            return (Criteria) this;
-        }
-
-        public Criteria andVersionNotBetween(Integer value1, Integer value2) {
-            addCriterion("version not between", value1, value2, "version");
+        public Criteria andCurrentVersionNotBetween(Integer value1, Integer value2) {
+            addCriterion("current_version not between", value1, value2, "currentVersion");
             return (Criteria) this;
         }
 
@@ -855,18 +775,8 @@ public class ConfigInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andConfigKeyLikeInsensitive(String value) {
-            addCriterion("upper(config_key) like", value.toUpperCase(), "configKey");
-            return (Criteria) this;
-        }
-
-        public Criteria andConfigValueLikeInsensitive(String value) {
-            addCriterion("upper(config_value) like", value.toUpperCase(), "configValue");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastOperatorLikeInsensitive(String value) {
-            addCriterion("upper(last_operator) like", value.toUpperCase(), "lastOperator");
+        public Criteria andOperatorLikeInsensitive(String value) {
+            addCriterion("upper(operator) like", value.toUpperCase(), "operator");
             return (Criteria) this;
         }
     }

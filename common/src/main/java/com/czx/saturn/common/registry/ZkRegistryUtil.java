@@ -27,6 +27,12 @@ public class ZkRegistryUtil {
     private CuratorFramework curatorFramework = CuratorFrameworkFactory.
             newClient("127.0.0.1:2182", new BoundedExponentialBackoffRetry(1000, 1000, 3));
 
+
+
+    public String create(){
+        return null;
+    }
+
     /**
      * 创建客户端在zk的节点
      *

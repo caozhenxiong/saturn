@@ -11,7 +11,7 @@ import java.util.Date;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ConfigInfo {
+public class ConfigProperties {
     private Long id;
 
     private String type;
@@ -33,7 +33,5 @@ public class ConfigInfo {
     private Date createTime;
 
     private Date updateTime;
-
-    private String configText;
 
 }

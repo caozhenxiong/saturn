@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.czx.saturn.core.mapper.ConfigInfoMapper" >
-  <resultMap id="BaseResultMap" type="com.czx.saturn.core.entity.ConfigInfo" >
+<mapper namespace="com.czx.saturn.core.mapper.ConfigTextMapper" >
+  <resultMap id="BaseResultMap" type="com.czx.saturn.core.entity.ConfigText" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="type" property="type" jdbcType="VARCHAR" />
     <result column="namespace_code" property="namespaceCode" jdbcType="VARCHAR" />
     <result column="env_code" property="envCode" jdbcType="VARCHAR" />
     <result column="app_code" property="appCode" jdbcType="VARCHAR" />
-    <result column="config_key" property="configKey" jdbcType="VARCHAR" />
-    <result column="config_value" property="configValue" jdbcType="VARCHAR" />
     <result column="last_operator" property="lastOperator" jdbcType="VARCHAR" />
     <result column="version" property="version" jdbcType="INTEGER" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.czx.saturn.core.entity.ConfigInfo" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.czx.saturn.core.entity.ConfigText" extends="BaseResultMap" >
     <result column="config_text" property="configText" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -76,13 +74,13 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, type, namespace_code, env_code, app_code, config_key, config_value, last_operator, 
-    version, create_time, update_time
+    id, type, namespace_code, env_code, app_code, last_operator, version, create_time, 
+    update_time
   </sql>
   <sql id="Blob_Column_List" >
     config_text
   </sql>
-  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.czx.saturn.core.entity.ConfigInfoExample" >
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.czx.saturn.core.entity.ConfigTextExample" >
     select
     <if test="distinct" >
       distinct
@@ -90,7 +88,7 @@
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
-    from config_info
+    from config_text
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -98,13 +96,13 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.czx.saturn.core.entity.ConfigInfoExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.czx.saturn.core.entity.ConfigTextExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from config_info
+    from config_text
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -117,33 +115,31 @@
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
-    from config_info
+    from config_text
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from config_info
+    delete from config_text
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.czx.saturn.core.entity.ConfigInfoExample" >
-    delete from config_info
+  <delete id="deleteByExample" parameterType="com.czx.saturn.core.entity.ConfigTextExample" >
+    delete from config_text
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.czx.saturn.core.entity.ConfigInfo" >
-    insert into config_info (id, type, namespace_code, 
-      env_code, app_code, config_key, 
-      config_value, last_operator, version, 
-      create_time, update_time, config_text
-      )
+  <insert id="insert" parameterType="com.czx.saturn.core.entity.ConfigText" >
+    insert into config_text (id, type, namespace_code, 
+      env_code, app_code, last_operator, 
+      version, create_time, update_time, 
+      config_text)
     values (#{id,jdbcType=BIGINT}, #{type,jdbcType=VARCHAR}, #{namespaceCode,jdbcType=VARCHAR}, 
-      #{envCode,jdbcType=VARCHAR}, #{appCode,jdbcType=VARCHAR}, #{configKey,jdbcType=VARCHAR}, 
-      #{configValue,jdbcType=VARCHAR}, #{lastOperator,jdbcType=VARCHAR}, #{version,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{configText,jdbcType=LONGVARCHAR}
-      )
+      #{envCode,jdbcType=VARCHAR}, #{appCode,jdbcType=VARCHAR}, #{lastOperator,jdbcType=VARCHAR}, 
+      #{version,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{configText,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.czx.saturn.core.entity.ConfigInfo" >
-    insert into config_info
+  <insert id="insertSelective" parameterType="com.czx.saturn.core.entity.ConfigText" >
+    insert into config_text
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -159,12 +155,6 @@
       </if>
       <if test="appCode != null" >
         app_code,
-      </if>
-      <if test="configKey != null" >
-        config_key,
-      </if>
-      <if test="configValue != null" >
-        config_value,
       </if>
       <if test="lastOperator != null" >
         last_operator,
@@ -198,12 +188,6 @@
       <if test="appCode != null" >
         #{appCode,jdbcType=VARCHAR},
       </if>
-      <if test="configKey != null" >
-        #{configKey,jdbcType=VARCHAR},
-      </if>
-      <if test="configValue != null" >
-        #{configValue,jdbcType=VARCHAR},
-      </if>
       <if test="lastOperator != null" >
         #{lastOperator,jdbcType=VARCHAR},
       </if>
@@ -221,14 +205,14 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.czx.saturn.core.entity.ConfigInfoExample" resultType="java.lang.Integer" >
-    select count(*) from config_info
+  <select id="countByExample" parameterType="com.czx.saturn.core.entity.ConfigTextExample" resultType="java.lang.Integer" >
+    select count(*) from config_text
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update config_info
+    update config_text
     <set >
       <if test="record.id != null" >
         id = #{record.id,jdbcType=BIGINT},
@@ -244,12 +228,6 @@
       </if>
       <if test="record.appCode != null" >
         app_code = #{record.appCode,jdbcType=VARCHAR},
-      </if>
-      <if test="record.configKey != null" >
-        config_key = #{record.configKey,jdbcType=VARCHAR},
-      </if>
-      <if test="record.configValue != null" >
-        config_value = #{record.configValue,jdbcType=VARCHAR},
       </if>
       <if test="record.lastOperator != null" >
         last_operator = #{record.lastOperator,jdbcType=VARCHAR},
@@ -272,14 +250,12 @@
     </if>
   </update>
   <update id="updateByExampleWithBLOBs" parameterType="map" >
-    update config_info
+    update config_text
     set id = #{record.id,jdbcType=BIGINT},
       type = #{record.type,jdbcType=VARCHAR},
       namespace_code = #{record.namespaceCode,jdbcType=VARCHAR},
       env_code = #{record.envCode,jdbcType=VARCHAR},
       app_code = #{record.appCode,jdbcType=VARCHAR},
-      config_key = #{record.configKey,jdbcType=VARCHAR},
-      config_value = #{record.configValue,jdbcType=VARCHAR},
       last_operator = #{record.lastOperator,jdbcType=VARCHAR},
       version = #{record.version,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -290,14 +266,12 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update config_info
+    update config_text
     set id = #{record.id,jdbcType=BIGINT},
       type = #{record.type,jdbcType=VARCHAR},
       namespace_code = #{record.namespaceCode,jdbcType=VARCHAR},
       env_code = #{record.envCode,jdbcType=VARCHAR},
       app_code = #{record.appCode,jdbcType=VARCHAR},
-      config_key = #{record.configKey,jdbcType=VARCHAR},
-      config_value = #{record.configValue,jdbcType=VARCHAR},
       last_operator = #{record.lastOperator,jdbcType=VARCHAR},
       version = #{record.version,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -306,8 +280,8 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.czx.saturn.core.entity.ConfigInfo" >
-    update config_info
+  <update id="updateByPrimaryKeySelective" parameterType="com.czx.saturn.core.entity.ConfigText" >
+    update config_text
     <set >
       <if test="type != null" >
         type = #{type,jdbcType=VARCHAR},
@@ -320,12 +294,6 @@
       </if>
       <if test="appCode != null" >
         app_code = #{appCode,jdbcType=VARCHAR},
-      </if>
-      <if test="configKey != null" >
-        config_key = #{configKey,jdbcType=VARCHAR},
-      </if>
-      <if test="configValue != null" >
-        config_value = #{configValue,jdbcType=VARCHAR},
       </if>
       <if test="lastOperator != null" >
         last_operator = #{lastOperator,jdbcType=VARCHAR},
@@ -345,14 +313,12 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.czx.saturn.core.entity.ConfigInfo" >
-    update config_info
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.czx.saturn.core.entity.ConfigText" >
+    update config_text
     set type = #{type,jdbcType=VARCHAR},
       namespace_code = #{namespaceCode,jdbcType=VARCHAR},
       env_code = #{envCode,jdbcType=VARCHAR},
       app_code = #{appCode,jdbcType=VARCHAR},
-      config_key = #{configKey,jdbcType=VARCHAR},
-      config_value = #{configValue,jdbcType=VARCHAR},
       last_operator = #{lastOperator,jdbcType=VARCHAR},
       version = #{version,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -360,14 +326,12 @@
       config_text = #{configText,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.czx.saturn.core.entity.ConfigInfo" >
-    update config_info
+  <update id="updateByPrimaryKey" parameterType="com.czx.saturn.core.entity.ConfigText" >
+    update config_text
     set type = #{type,jdbcType=VARCHAR},
       namespace_code = #{namespaceCode,jdbcType=VARCHAR},
       env_code = #{envCode,jdbcType=VARCHAR},
       app_code = #{appCode,jdbcType=VARCHAR},
-      config_key = #{configKey,jdbcType=VARCHAR},
-      config_value = #{configValue,jdbcType=VARCHAR},
       last_operator = #{lastOperator,jdbcType=VARCHAR},
       version = #{version,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},

@@ -38,15 +38,13 @@
         </javaClientGenerator>
 
         <!-- !!!! Table Configurations !!!! -->
-        <table tableName="application_info" domainObjectName="ApplicationInfo" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
+        <table tableName="config_properties" domainObjectName="ConfigProperties" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
                enableUpdateByExample="true"/>
-        <table tableName="env_info" domainObjectName="EnvInfo" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
+        <table tableName="config_text" domainObjectName="ConfigText" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
                enableUpdateByExample="true"/>
-        <table tableName="namespace_info" domainObjectName="NamespaceInfo" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
+        <table tableName="config_properties_snapshot" domainObjectName="ConfigPropertiesSnapshot" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
                enableUpdateByExample="true"/>
-        <table tableName="config_info" domainObjectName="ConfigInfo" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
-               enableUpdateByExample="true"/>
-        <table tableName="config_snapshot" domainObjectName="ConfigSnapshot" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
+        <table tableName="config_text_snapshot" domainObjectName="ConfigTextSnapshot" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true"
                enableUpdateByExample="true"/>
 
     </context>
