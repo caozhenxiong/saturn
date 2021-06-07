@@ -25,7 +25,7 @@
         <druid_version>1.1.20</druid_version>
         <mysql_conn_version>8.0.16</mysql_conn_version>
         <slf4j_version>1.7.21</slf4j_version>
-        <logback_version>1.1.7</logback_version>
+        <logback_version>1.2.0</logback_version>
     </properties>
     <dependencyManagement>
         <dependencies>
