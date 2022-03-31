@@ -19,7 +19,7 @@
         <guava_version>22.0</guava_version>
         <common_langs_version>3.9</common_langs_version>
         <curator_version>4.0.1</curator_version>
-        <spring_boot_version>2.1.7.RELEASE</spring_boot_version>
+        <spring_boot_version>2.5.12</spring_boot_version>
         <ok_http_version>4.1.0</ok_http_version>
         <mybatis_spring_version>2.1.0</mybatis_spring_version>
         <druid_version>1.1.20</druid_version>
