@@ -23,7 +23,7 @@
         <ok_http_version>4.1.0</ok_http_version>
         <mybatis_spring_version>2.1.0</mybatis_spring_version>
         <druid_version>1.1.20</druid_version>
-        <mysql_conn_version>8.0.16</mysql_conn_version>
+        <mysql_conn_version>8.0.28</mysql_conn_version>
         <slf4j_version>1.7.21</slf4j_version>
         <logback_version>1.1.7</logback_version>
     </properties>
